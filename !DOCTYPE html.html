@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste</title>
+    <style>
+        /* Estilo geral do corpo */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Contêiner principal */
+        .container {
+            margin: 50px auto;
+            max-width: 800px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Títulos */
+        h1 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* Imagem */
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+        }
+
+        /* Controle de áudio */
+        audio {
+            margin-top: 20px;
+            width: 80%;
+            outline: none;
+        }
+
+        /* Botão */
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Esconder conteúdo inicialmente */
+        #content {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Teste de Arquivos</h1>
+        <button id="startButton">Escolher Aleatoriamente</button>
+        <div id="content">
+            <img id="randomImage" src="" alt="Imagem aleatória">
+            <p id="randomText"></p>
+            <audio id="backgroundMusic" controls>
+                <source src="" type="audio/mp3">
+                Seu navegador não suporta o elemento de áudio.
+            </audio>
+        </div>
+    </div>
+    <script>
+        const images = [
+            { src: 'C:\Users\phdel\Desktop\Nova pasta (2)\image\foto 1.png', text: 'Texto para a Foto 1', music: 'music/musica1.mp3' },
+            { src: 'C:\Users\phdel\Desktop\Nova pasta (2)\image\foto 2.png', text: 'Texto para a Foto 2', music: 'music/musica2.mp3' },
+            { src: 'C:\Users\phdel\Desktop\Nova pasta (2)\image\foto 3.png', text: 'Texto para a Foto 3', music: 'music/musica3.mp3' },
+        ];
+
+        document.getElementById('startButton').addEventListener('click', () => {
+            const randomIndex = Math.floor(Math.random() * images.length);
+            const selectedImage = images[randomIndex];
+
+            document.getElementById('randomImage').src = selectedImage.src;
+            document.getElementById('randomText').textContent = selectedImage.text;
+            const audioElement = document.getElementById('backgroundMusic');
+            audioElement.src = selectedImage.music;
+            audioElement.play();
+
+            document.getElementById('content').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
